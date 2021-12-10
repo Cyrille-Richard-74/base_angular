@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-6">
+
+    <h3>User profile <small>(data stored on localstorage)</small></h3>
+    <pre>{{ user_1 | json }}</pre>
+
+  </div>
+  <div class="col-6">
+
+    <h3>User profile <small>(by API on demand)</small></h3>
+    <pre>{{ user_2 | json }}</pre>
+    <hr>
+    <pre>
+            Page: Core > Security > Components > Profile
+            Data Loading : {{ dataLoading }}
+            Page Ready : {{ pageReady }}
+            httpError : {{ httpError }}
+        </pre>
+
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<p>
+  Book => Update => Toolbar works!
+</p>
+
+<nav>
+  <a [routerLink]="['/books']">Books index</a> - 
+
+  <a [routerLink]="['/books', {outlets: { 
+    primary: 'create',
+    sidebar: 'create',
+    toolbar: 'create',
+    modal: 'create'
+  }}]">Create a new book</a> - 
+
+  <a [routerLink]="['/books', {outlets: {
+    primary: bookID+'',
+    sidebar: bookID+'',
+    toolbar: bookID+'',
+    modal: bookID+''
+  }}]">Cancel (return to book details)</a> - 
+
+  <a href="#" data-toggle="modal" data-target="#bookDeleteModal">Delete this book</a>
+</nav>

@@ -1,0 +1,14 @@
+<p>
+  Book => Partials => toolbar works!
+</p>
+
+<nav>
+  <a [routerLink]="['/books']">Books index</a> - 
+  
+  <a [routerLink]="['/books', {outlets: { 
+    primary: 'create',
+    sidebar: 'create',
+    toolbar: 'create',
+    modal: 'create'
+  }}]">Create a new book</a>
+</nav>

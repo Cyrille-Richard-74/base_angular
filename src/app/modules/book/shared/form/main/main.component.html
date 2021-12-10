@@ -1,0 +1,47 @@
+<p>
+  Book => Shared Form => main works!
+</p>
+
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="title">Book Title</label>
+    <input type="text" class="form-control" formControlName="title"
+      [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+    <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+      <div *ngIf="f.title.errors.required">Title is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Book Description</label>
+    <textarea class="form-control" formControlName="description"
+      [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+    <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+      <div *ngIf="f.description.errors.required">Description is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Book Price</label>
+    <input type="number" step="0.01" class="form-control" formControlName="price"
+      [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
+    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+      <div *ngIf="f.price.errors.required">Price is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="cover">Book Cover</label>
+    <input type="file" class="form-control" formControlName="cover" (change)="handleCover($event.target)"
+      [ngClass]="{ 'is-invalid': submitted && f.cover.errors }">
+    <div *ngIf="submitted && f.cover.errors" class="invalid-feedback">
+      <div *ngIf="f.cover.errors.required">Cover is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary">{{ btnSubmitLabel }}</button>
+  </div>
+
+</form>

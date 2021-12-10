@@ -1,0 +1,54 @@
+<pre>
+  Page: Books > Index > Main Component
+  Data Loading : {{ dataLoading }}
+  Page Ready : {{ pageReady }}
+  httpError : {{ httpError }}
+  Pagination : {{ pagination | json }}
+  <!-- Items: {{ books | json }} -->
+</pre>
+
+<hr>
+
+<!-- Page loading animation -->
+<ng-container *ngIf="!pageReady; else mainTemplate">
+  <app-loader></app-loader>
+</ng-container>
+
+<ng-template #mainTemplate>
+  page Loaded
+
+  <!-- Data loading animation -->
+  <app-loader *ngIf="dataLoading"></app-loader>
+
+  <ul>
+    <li *ngFor="let book of books | paginate: { 
+      id: 'pagination',
+      itemsPerPage: pagination.itemsPerPage, 
+      currentPage: pagination.page,
+      totalItems: pagination.totalItems
+    }">
+
+      <a [routerLink]="['/books', {outlets: { 
+        primary: book.id+'',
+        sidebar: book.id+'',
+        toolbar: book.id+'',
+        modal: book.id+''
+      }}]">{{ book.title }}</a>
+
+      <details>
+        <summary>{{ book.title }} : details</summary>
+        <div>
+          <pre>{{ book | json }}</pre>
+        </div>
+      </details>
+
+    </li>
+  </ul>
+
+  <!-- https://www.npmjs.com/package/ngx-pagination -->
+  <pagination-controls
+    id="pagination" 
+    maxSize="9"
+    (pageChange)="getBooks($event)"></pagination-controls>
+
+</ng-template>

@@ -1,0 +1,41 @@
+<header id="main-header">
+
+    <nav class="navbar navbar-expand navbar-light bg-light">
+  
+        <a class="navbar-brand" [routerLink]="['/']">{{ title }}</a>
+  
+        <!-- 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> 
+        -->
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/']">Homepage</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/books']">Books</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/pizzas']">Pizzas</a>
+              </li>
+            </ul>
+  
+            <security-menu></security-menu>
+  
+        </div>
+    </nav>
+  
+
+
+    <details>
+      <summary>Header</summary>
+  
+      <div>
+        <strong>File : </strong> /src/app/core/partials/header/
+      </div>
+    </details>
+
+  </header>
